@@ -17,6 +17,9 @@ db.on('error', (error) => console.error(error))
 // once we connect (only run once), let us know that we're connected to the database
 db.once('open', ()=> console.log('Connected to database'))
 
+// create an app.use() function that will run once the server gets the request but before it gets passed to the route
+app.use(express.json())
+
 // Create app.listen to run a server on port 3000 and console log it
 app.listen(3000, ()=> console.log('Server running'))
 //run > npm run devStart to run this server

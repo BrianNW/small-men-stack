@@ -20,6 +20,11 @@ db.once('open', ()=> console.log('Connected to database'))
 // create an app.use() function that will run once the server gets the request but before it gets passed to the route
 app.use(express.json())
 
+// Setup Subscriber Route
+const subscribersRouter = require('./routes/subscribers')
+// tell app to use the subscriber route within the subscribersRouter (path) derived from the const
+app.use('/subscribers', subscribersRouter)
+
 // Create app.listen to run a server on port 3000 and console log it
 app.listen(3000, ()=> console.log('Server running'))
 //run > npm run devStart to run this server

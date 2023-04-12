@@ -19,9 +19,20 @@ module.exports = router
 
 
 // CREATE ONE
+router.post('/', async (req, res) => {
+    // pass a new Subscriber json data to subscriber
+    const subscriber = new Subscriber ({
+        // name will come from the name propert of the body request
+        name: req.body.name,
+        subscribedToChannel: req.body.subscribedToChannel
+    })    
 
-router.post('/', (req, res) => {
-    
+    try {
+        const newSubscriber = await subscriber.save()
+        res.status(201).json(newSubscriber)
+    }catch (err) {
+        res.status(400).json({message: err.message})
+    }
 })
 
 // UPDATE ONE

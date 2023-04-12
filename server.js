@@ -10,7 +10,8 @@ const app = express()
 const mongoose = require('mongoose')
 
 // Connect to our db - use process.env.DATABASE_URL before pushing to prod
-mongoose.connect('mongodb://localhost/subscribers', {useNewUrlParser: true})
+// mongoose.connect('mongodb://localhost/subscribers', {useNewUrlParser: true})
+mongoose.connect(process.env.DATABASE_URL, {useNewUrlParser: true})
 const db = mongoose.connection
 // Once db is on, check for error and log it
 db.on('error', (error) => console.error(error))

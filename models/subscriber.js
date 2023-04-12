@@ -17,4 +17,4 @@ const subscriberSchema = new mongoose.Schema({
 })
 
 // Takes two properties - name of the model of the db & schema for that model
-modules.exports = mongoose.model('Subscriber', subscriberSchema)
+module.exports = mongoose.model('Subscriber', subscriberSchema)

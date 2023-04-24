@@ -50,6 +50,7 @@ router.delete('/:id', (req, res) => {
 
 // middleware. Next argument will move onto next section of the code
 async function getSubscriber(req, res, next){
+    let subscriber
     try {
         // give this the subscriber id
         subscriber = await Subscriber.findById(req.params.id)
@@ -58,7 +59,11 @@ async function getSubscriber(req, res, next){
             // can't find subscriber
             return res.status(404).json({message: 'Cannot find subscriber'})
         }
-    }catch(err)
+    }catch(err) {
+
+    }
+    // set response to subscriber
+    res.subscriber = subscriber
 }
 
 

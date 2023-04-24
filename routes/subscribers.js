@@ -63,6 +63,8 @@ async function getSubscriber(req, res, next){
     }
     // set response to subscriber
     res.subscriber = subscriber
+    // if successful, run next() to run to the next piece of middleware
+    next()
 }
 
 

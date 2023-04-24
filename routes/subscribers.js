@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 
 // GET ONE
 router.get('/:id', getSubscriber, (req, res) => {
-    res.send(res.subscriber.name)
+    res.send(res.subscriber)
 })
 module.exports = router
 

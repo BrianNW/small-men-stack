@@ -12,8 +12,8 @@ router.get('/', async (req, res) => {
 })
 
 // GET ONE
-router.get('/:id', (req, res) => {
-    res.send(req.params.id)
+router.get('/:id', getSubscriber, (req, res) => {
+    res.send(res.subscriber.name)
 })
 module.exports = router
 

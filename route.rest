@@ -10,6 +10,10 @@ POST http://localhost:3000/subscribers
 Content-Type: application/json
 
 {
-    "name": "Person1",
-    "subscribedToChannel": "My Channel"
+    "name": "Person33",
+    "subscribedToChannel": "My Channelzzz"
 }
+
+###
+
+DELETE http://localhost:3000/subscribers/6446c72e12c696bb67e54c90

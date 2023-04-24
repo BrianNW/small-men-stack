@@ -43,8 +43,13 @@ router.patch('/:id', getSubscriber, (req, res) => {
 
 
 // DELETE ONE
-router.delete('/:id', getSubscriber, (req, res) => {
-    res.subscriber
+router.delete('/:id', getSubscriber, async (req, res) => {
+    try {
+        await res.subscriber.remove()
+        res.json({message: 'Deleted Subscriber'})
+    }catch(err) {
+        res.status(500).json({message: err.message })
+    }
 })
 
 // middleware. Next argument will move onto next section of the code

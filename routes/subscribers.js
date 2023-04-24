@@ -43,7 +43,6 @@ router.patch('/:id', (req, res) => {
 
 
 // DELETE ONE
-
 router.delete('/:id', (req, res) => {
     res.subscriber
 })
@@ -60,7 +59,7 @@ async function getSubscriber(req, res, next){
             return res.status(404).json({message: 'Cannot find subscriber'})
         }
     }catch(err) {
-
+        return res.status(500).json({message:err.message})
     }
     // set response to subscriber
     res.subscriber = subscriber

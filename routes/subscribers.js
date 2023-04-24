@@ -47,3 +47,18 @@ router.patch('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     
 })
+
+// middleware. Next argument will move onto next section of the code
+async function getSubscriber(req, res, next){
+    try {
+        // give this the subscriber id
+        subscriber = await Subscriber.findById(req.params.id)
+        // check if exists
+        if(subscriber == null) {
+            // can't find subscriber
+            return res.status(404).json({message: 'Cannot find subscriber'})
+        }
+    }catch(err)
+}
+
+

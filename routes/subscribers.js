@@ -38,14 +38,14 @@ router.post('/', async (req, res) => {
 // UPDATE ONE
 // Use .patch rather than put to update only ONE entry of this subscriber that gets passed, not all the information at once
 router.patch('/:id', (req, res) => {
-    req.params.id
+    res.subscriber
 })
 
 
 // DELETE ONE
 
 router.delete('/:id', (req, res) => {
-    
+    res.subscriber
 })
 
 // middleware. Next argument will move onto next section of the code

@@ -6,6 +6,7 @@ const Subscriber = require('../models/subscriber')
 router.get('/', async (req, res) => {
     try {
         const subscribers = await Subscriber.find()
+        res.json(subscribers)
     }catch (err){
         res.status(500).json({message: err.message})
     }
@@ -38,7 +39,9 @@ router.post('/', async (req, res) => {
 // UPDATE ONE
 // Use .patch rather than put to update only ONE entry of this subscriber that gets passed, not all the information at once
 router.patch('/:id', getSubscriber, (req, res) => {
-    res.subscriber
+    if(req.body.name != null) {
+        res.subscriber.name = req.body.name
+    }
 })
 
 
